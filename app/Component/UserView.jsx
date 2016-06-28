@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import action from '../Action/Index';
 import {Tool, merged, GetNextPage} from '../Tool';
@@ -36,7 +36,7 @@ class Main extends Component {
         this.readyDOM = (props) => {
             let { GET_LATEST_VIEW_DATA_SUCCESS, GET_LATEST_VIEW_DATA_ERROR} = props;
             let {scrollX, scrollY} = this.state;
-            var url = '/api/v1/user/' + this.state.loginname;
+            var url = 'https://cnodejs.org/api/v1/user/' + this.state.loginname;
             this.get = Tool.get(url, {}, GET_LATEST_VIEW_DATA_SUCCESS, GET_LATEST_VIEW_DATA_ERROR);
             window.scrollTo(scrollX, scrollY); //设置滚动条位置
         }

@@ -9,13 +9,13 @@ var productionPlugin = new webpack.DefinePlugin({
     }
 });
 
-var cssExtractPlugin = new ExtractTextPlugin('webpackstyles.css');
+// var cssExtractPlugin = new ExtractTextPlugin('webpackstyles.css');
 
 config.devtool = '';
 config.output.pathinfo = false;
 config.entry = ['./app/App.jsx'];
 config.plugins.unshift(productionPlugin);
-config.plugins.push(cssExtractPlugin);
+// config.plugins.push(cssExtractPlugin);
 
 config.module.loaders = [{
     test: /\.js$/,

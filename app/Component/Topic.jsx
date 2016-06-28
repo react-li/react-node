@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import {Link } from 'react-router';
 import { connect } from 'react-redux';
 import action from '../Action/Index';
 import {Tool, merged, GetNextPage} from '../Tool';
@@ -37,7 +37,7 @@ class Main extends Component {
         this.readyDOM = (props) => {
             let { GET_LATEST_VIEW_DATA_SUCCESS, GET_LATEST_VIEW_DATA_ERROR} = props;
             let {scrollX, scrollY, mdrender} = this.state;
-            var url = '/api/v1/topic/' + (props.params.id || '');
+            var url = 'https://cnodejs.org/api/v1/topic/' + (props.params.id || '');
             this.get = Tool.get(url, { mdrender }, GET_LATEST_VIEW_DATA_SUCCESS, GET_LATEST_VIEW_DATA_ERROR);
             window.scrollTo(scrollX, scrollY); //设置滚动条位置
         }
@@ -140,7 +140,7 @@ class ReList extends Component {
                                 </div>
                                 <div className="main" data-flex-box="1">
                                     <div data-flex="main:justify">
-                                        <Link to={'/user/' + author.loginname} className="name">{author.loginname}</Link>
+                                        <Link to={`/user/${author.loginname}`} className="name">{author.loginname}</Link>
                                         <time data-flex-box="1">{Tool.formatDate(create_at) }</time>
                                         <div className="lou">#{++index}</div>
                                     </div>

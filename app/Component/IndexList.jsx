@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import action from '../Action/Index';
 import {Tool, merged, GetNextPage} from '../Tool';
@@ -106,7 +106,7 @@ class Main extends Component {
             if (this.GetNextPage || !nextBtn) return false; //如果已经开启了分页插件，或不需要开启分页，进行拦截，避免造成无限循环
             window.scrollTo(scrollX, scrollY); //设置滚动条位置
             this.GetNextPage = new GetNextPage(this.refs.dataload, {
-                url: '/api/v1/topics',
+                url: 'https://cnodejs.org/api/v1/topics',
                 data: {
                     tab: location.query.tab || 'all',
                     page,

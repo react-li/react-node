@@ -28,10 +28,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: '!',
             minify: {
-                removeTagWhitespace: true,
                 removeAttributeQuotes: true,
                 collapseInlineTagWhitespace: true,
-                collapseWhitespace: true
+                collapseWhitespace: true,
+                removeTagWhitespace: true
             },
             template: './template.html',
             inject: 'body'

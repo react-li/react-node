@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import { Router, Route, IndexRoute, browserHistory, hashHistory } from 'react-router';
+import { Route, IndexRoute } from 'react-router';
 
 import IndexList from '../Component/IndexList'; //首页组件
 import Topic from '../Component/Topic'; //主题详情
@@ -23,16 +23,16 @@ class Roots extends Component {
 }
 
 const RouteConfig = (
-    <Router history={browserHistory}>
-        <Route path="/" component={Roots}>
-            <IndexRoute component={IndexList} />
-            <Route path="topic/create" component={TopicCreate} />
-            <Route path="topic/:id" component={Topic} />
-            <Route path="my/messages" component={MyMessages} />
-            <Route path="user/:loginname" component={UserView} />
-            <Route path="signin" component={Signin} />
-        </Route>
-    </Router>
+    
+<Route path="/" component={Roots}>
+    <IndexRoute component={IndexList} />
+    <Route path="topic/create" component={TopicCreate} />
+    <Route path="topic/:id" component={Topic} />
+    <Route path="my/messages" component={MyMessages} />
+    <Route path="user/:loginname" component={UserView} />
+    <Route path="signin" component={Signin} />
+</Route>
+    
 );
 
 export default RouteConfig;
