@@ -2,6 +2,7 @@
 @style-bg: #eee;
 @style-main : #2c3e50;
 @style-color: #2c3e50;
+@head-height:38px;
 body, ul, li, a, p, h2, h3, textarea, button, input {
     padding: 0;
     margin: 0;
@@ -26,7 +27,7 @@ img {
 
 .index-nav {
     .height {
-        height: 38px;
+        height: @head-height;
         background: @style-main;
     }
     ul {
@@ -35,29 +36,28 @@ img {
         right: 0;
         left: 0;
         z-index: 9999;
-        height: 38px;
+        height: @head-height;
         background: @style-main;
     }
     li {
         position: relative;
-        line-height: 38px;
-        &+li {
-            &::after {
-                position: absolute;
-                top: 10px;
-                bottom: 10px;
-                content: "";
-                border-left: 1px solid darken(@style-main, 10%);
-                border-right: 1px solid lighten(@style-main, 10%);
-            }
-        }
+        line-height: @head-height;
+        // &+li {
+        //     &::after {
+        //         position: absolute;
+        //         top: 10px;
+        //         bottom: 10px;
+        //         content: "";
+        //         border-left: 1px solid darken(@style-main, 10%);
+        //         border-right: 1px solid lighten(@style-main, 10%);
+        //     }
+        // }
     }
     .on {
         a {
-            margin: 5px 10px;
-            line-height: 28px;
-            border-radius: 8px;
+            line-height: @head-height; 
             background: darken(@style-main, 10%);
+            transition: .3s;
         }
     }
     a {
@@ -138,28 +138,28 @@ img {
 */
 
 .common-header {
-    height: 50px;
+    height: @head-height;
     z-index: 999;
     position: relative;
     background: @style-main;
-    animation: move-down 0.3s ease-out;
+    // animation: move-down 0.3s ease-out;
     .icon {
-        width: 50px;
-        height: 50px;
+        width: @head-height;
+        height: @head-height;
         a {
             display: block;
             color: #fff;
         }
     }
     .iconfont {
-        font-size: 24px;
+        font-size: 20px;
         color: #fff;
     }
     .title {
-        line-height: 50px;
+        line-height: @head-height;
         text-align: center;
         color: #fff;
-        font-size: 16px;
+        font-size: 14px;
         margin: 0;
         white-space: nowrap;
         text-overflow: ellipsis;

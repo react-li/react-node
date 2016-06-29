@@ -26,7 +26,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '!',
+            title: 'ReactJS ? I like!',
             minify: {
                 removeAttributeQuotes: true,
                 collapseInlineTagWhitespace: true,
