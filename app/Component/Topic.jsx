@@ -31,7 +31,7 @@ class Main extends Component {
                 return alert('你不能给自己点赞');
             }
 
-            Tool.post(`/api/v1/reply/${id}/ups`, { accesstoken }, (res) => {
+            Tool.post(`https://cnodejs.org/api/v1/reply/${id}/ups`, { accesstoken }, (res) => {
                 var ups = this.props.state.data.replies[index - 1].ups;
                 if (res.action == 'down') { //取消点赞
                     for (let i = 0; i < ups.length; i++) {
@@ -233,10 +233,10 @@ class ReplyBox extends Component {
                 return alert('回复内容不能为空！');
             }
 
-            Tool.post(`/api/v1//topic/${data.id}/replies`, data, (res) => {
+            Tool.post(`https://cnodejs.org/api/v1//topic/${data.id}/replies`, data, (res) => {
                 this.setState({ btnname: '回复成功，刷新页面中..' });
                 this.refs.content.value = '';
-                Tool.get(`/api/v1//topic/${data.id}`, {}, (res) => {
+                Tool.get(`https://cnodejs.org/api/v1//topic/${data.id}`, {}, (res) => {
                     this.props.reLoadData(res.data); //刷新页面
                     this.setState({ btnname: '回复' });
                 }, () => {
@@ -272,7 +272,7 @@ export default GetData({
     id: 'Topic',  //应用关联使用的redux
     component: Main, //接收数据的组件入口
     url: (props, state) => {
-        return '/api/v1/topic/' + (props.params.id || '');
+        return 'https://cnodejs.org/api/v1/topic/' + (props.params.id || '');
     },
     data: (props, state) => { //发送给服务器的数据
         var accesstoken = props.User ? props.User.accesstoken : '';

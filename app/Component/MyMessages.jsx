@@ -77,7 +77,7 @@ class Content extends Component {
 export default GetData({
     id: 'MyMessages',  //应用关联使用的redux
     component: Main, //接收数据的组件入口
-    url: '/api/v1/messages', //服务器请求的地址
+    url: 'https://cnodejs.org/api/v1/messages', //服务器请求的地址
     stop: (props, state) => {
         return !Boolean(props.User); //true 拦截请求，false不拦截请求
     },

@@ -43,7 +43,7 @@ class Main extends Component {
                 return alert('内容字数30字以上');
             }
             this.postState = true;
-            Tool.post('/api/v1/topics', this.state, (res) => {
+            Tool.post('https://cnodejs.org/api/v1/topics', this.state, (res) => {
                 if (res.success) {
                     this.context.router.push({
                         pathname: '/topic/' + res.topic_id

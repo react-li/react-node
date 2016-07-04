@@ -116,7 +116,7 @@ class Main extends Component {
 export default GetNextPage({
     id: 'IndexList',  //应用关联使用的redux
     component: Main, //接收数据的组件入口
-    url: '/api/v1/topics',
+    url: 'https://cnodejs.org/api/v1/topics',
     data: (props, state) => { //发送给服务器的数据
         var {page, limit, mdrender} = state;
         return {

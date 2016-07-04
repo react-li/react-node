@@ -92,7 +92,7 @@ export default GetData({
     id: 'UserView',  //应用关联使用的redux
     component: Main, //接收数据的组件入口
     url: (props, state) => {
-        return '/api/v1/user/' + props.params.loginname;
+        return 'https://cnodejs.org/api/v1/user/' + props.params.loginname;
     },
     data: {},
     success: (state) => { return state; }, //请求成功后执行的方法

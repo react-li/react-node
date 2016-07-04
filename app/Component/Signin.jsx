@@ -21,7 +21,7 @@ class Main extends Component {
             var accesstoken = this.refs.accesstoken.value;
             if (!accesstoken) return alert('不能为空！');
             this.setState({ button: '登录中...' });
-            Tool.post('/api/v1/accesstoken', { accesstoken }, (res) => {
+            Tool.post('https://cnodejs.org/api/v1/accesstoken', { accesstoken }, (res) => {
                 if (res.success) {
                     alert('登录成功');
                     res.accesstoken = accesstoken;
