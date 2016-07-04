@@ -11,6 +11,7 @@
     "clean": "gulp clean",
     "lint": "eslint ./app",
     "pages": "gh-pages -d public",
+    "dll":"./node_modules/.bin/webpack --config webpack.dll.config.js",
     "testonly": "BABEL_DISABLE_CACHE=1 NODE_ENV=test mocha $npm_package_options_mocha",
     "test": "npm run lint && npm run testonly"
   },
