@@ -1,9 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import ReactDOM, {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import { Router, hashHistory } from 'react-router';
-
-import routes from './Config/Route'; //路由配置
+import route from './Config/Route'; //路由配置
 import store from './Config/Store';
 
 
@@ -18,7 +16,7 @@ store.subscribe(function () {
 
 render(
     <Provider store={store}>
-       <Router routes={routes} history={hashHistory} />
+        {route}
     </Provider>,
-    document.getElementById('root')
+    document.body.appendChild(document.createElement('div'))
 );

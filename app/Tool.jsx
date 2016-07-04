@@ -1,5 +1,4 @@
 import merged from 'merge-obj';
-import GetNextPage from 'next-page';
 
 const Tool = {};
 /**
@@ -177,4 +176,4 @@ Tool.removeLocalItem = function (key) {
     return localStorage.removeItem();
 }
 
-export {Tool, merged, GetNextPage}
+export {Tool, merged}

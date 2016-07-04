@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react';
-import { Router, Route, IndexRoute, hashHistory, Link } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import action from '../Action/Index';
-import {Tool, merged, GetNextPage} from '../Tool';
+import {Tool, merged} from '../Tool';
 import {DataLoad, DataNull, Header, TipMsgSignin, Footer} from './common/index';
 
 /**
@@ -21,11 +21,11 @@ class Main extends Component {
             var accesstoken = this.refs.accesstoken.value;
             if (!accesstoken) return alert('不能为空！');
             this.setState({ button: '登录中...' });
-            Tool.post('https://cnodejs.org/api/v1/accesstoken', { accesstoken }, (res) => {
+            Tool.post('/api/v1/accesstoken', { accesstoken }, (res) => {
                 if (res.success) {
                     alert('登录成功');
                     res.accesstoken = accesstoken;
-                    this.props.SIGNIN_SUCCESS(res);
+                    this.props.signinSuccess(res);
                     this.context.router.push({
                         pathname: '/user/' + res.loginname
                     });

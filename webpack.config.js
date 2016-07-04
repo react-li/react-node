@@ -22,7 +22,7 @@ module.exports = {
         pathinfo: true,
         path: path.resolve(__dirname, 'public'),
         filename: 'bundle.[hash].js',
-        publicPath: '/'
+        publicPath: './'
     },
     plugins: [
         new HtmlWebpackPlugin({

@@ -1,10 +1,12 @@
 import React, {Component, PropTypes} from 'react';
-import { hashHistory, Link } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import { connect } from 'react-redux';
 import action from '../../Action/Index';
-import {Tool, merged, GetNextPage} from '../../Tool';
+import {Tool, merged} from '../../Tool';
+import GetData from './GetData';
+import GetNextPage from './GetNextPage';
 
-
+export {GetData, GetNextPage}
 /**
  * (加载动画)
  * 
@@ -35,7 +37,7 @@ DataLoad.defaultProps = {
  */
 export class Header extends Component {
     render() {
-        let {title, leftTo, leftIcon, rightTo, rightIcon } = this.props;
+        let {title, leftTo, leftIcon, rightTo, rightIcon, rightClick } = this.props;
         let left = null;
 
         if (leftTo && leftIcon) {
@@ -53,12 +55,17 @@ export class Header extends Component {
         }
 
         let right = null;
-
         if (rightTo && rightIcon) {
             right = (
                 <Link to={rightTo}>
                     <i className={'iconfont icon-' + rightIcon}></i>
                 </Link>
+            );
+        } else if (rightClick && rightIcon) {
+            right = (
+                <div onClick={rightClick}>
+                    <i className={'iconfont icon-' + rightIcon}></i>
+                </div>
             );
         }
         return (
@@ -140,7 +147,7 @@ FooterInit.defaultProps = {
 };
 
 
-var Footer = connect((state) => { return { User: state.User }; }, action('User'))(FooterInit); 
+var Footer = connect((state) => { return { User: state.User }; }, action('User'))(FooterInit);
 
 export {Footer}
 /**
@@ -169,6 +176,29 @@ export class TipMsgSignin extends Component {
  */
 export class UserHeadImg extends Component {
     render() {
-       return (<div className="user-headimg"  style={{ backgroundImage: 'url(' + this.props.url + ')' }}></div>)
+        return (<div className="user-headimg"  style={{ backgroundImage: 'url(' + this.props.url + ')' }}></div>)
+    }
+}
+
+/**
+ * 生成主题类型小图标
+ * 
+ * @export
+ * @class tabIcon
+ * @extends {Component}
+ */
+export class TabIcon extends Component {
+    render() {
+        var {tab, top, good} = this.props;
+
+        if (top) {
+            tab = 'top';
+        } else if (good) {
+            tab = 'good';
+        }
+
+        return (
+            <i className={'iconfont icon-' + tab}></i>
+        );
     }
 }

@@ -1,9 +1,8 @@
 //out: null
 @style-bg: #eee;
-@style-main : #2c3e50;
+@style-main : #34313a;
 @style-color: #2c3e50;
-@head-height:38px;
-body, ul, li, a, p, h2, h3, textarea, button, input {
+body, ul, li, a, p, h2, h3, textarea, button, input,select {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -27,7 +26,7 @@ img {
 
 .index-nav {
     .height {
-        height: @head-height;
+        height: 38px;
         background: @style-main;
     }
     ul {
@@ -36,12 +35,12 @@ img {
         right: 0;
         left: 0;
         z-index: 9999;
-        height: @head-height;
+        height: 38px;
         background: @style-main;
     }
     li {
         position: relative;
-        line-height: @head-height;
+        line-height: 38px;
         // &+li {
         //     &::after {
         //         position: absolute;
@@ -55,9 +54,9 @@ img {
     }
     .on {
         a {
-            line-height: @head-height; 
+           
+            line-height: 38px;
             background: darken(@style-main, 10%);
-            transition: .3s;
         }
     }
     a {
@@ -65,6 +64,15 @@ img {
         font-size: 14px;
         text-align: center;
         color: #fff;
+    }
+}
+
+.index-list-box {
+    .zhanwei {
+        display: none;
+    }
+    & + div {
+        padding-bottom: 50px;
     }
 }
 
@@ -99,6 +107,46 @@ img {
     time {
         font-size: 12px;
     }
+    .bottom {
+        margin-top: 5px;
+    }
+    .font {
+        .iconfont {
+            padding: 3px 5px;
+            margin-right: 5px;
+            border-radius: 5px;
+            color: #fff;
+        }
+    }
+}
+
+
+/*
+    主题类型图标
+*/
+
+.icon-top {
+    background: #2c3e50;
+}
+
+.icon-job {
+    background: #2c3e50;
+}
+
+.icon-share {
+    background: #2c3e50;
+}
+
+.icon-ask {
+    background: #2c3e50;
+}
+
+.icon-good {
+    background: #2c3e50;
+}
+
+.icon-undefined {
+    display: none;
 }
 
 .data-load {
@@ -138,28 +186,28 @@ img {
 */
 
 .common-header {
-    height: @head-height;
+    height: 50px;
     z-index: 999;
     position: relative;
     background: @style-main;
-    // animation: move-down 0.3s ease-out;
+    animation: move-down 0.3s ease-out;
     .icon {
-        width: @head-height;
-        height: @head-height;
+        width: 50px;
+        height: 50px;
         a {
             display: block;
             color: #fff;
         }
     }
     .iconfont {
-        font-size: 20px;
+        font-size: 24px;
         color: #fff;
     }
     .title {
-        line-height: @head-height;
+        line-height: 50px;
         text-align: center;
         color: #fff;
-        font-size: 14px;
+        font-size: 16px;
         margin: 0;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -182,11 +230,11 @@ img {
 
 .topic {
     .user {
+        position: relative;
         padding: 10px;
         line-height: 20px;
         font-size: 12px;
         border-bottom: 1px solid #ddd;
-        .headimg {}
         .name {
             font-size: 14px;
             color: @style-main;
@@ -205,6 +253,20 @@ img {
         .qt {
             div {
                 padding-right: 5px;
+            }
+        }
+        .font {
+            position: absolute;
+            top: 0;
+            right: 0;
+            .iconfont {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                text-align: center;
+                font-size: 32px;
+                color: #fff;
+                opacity: 0.8;
             }
         }
     }
@@ -266,7 +328,11 @@ img {
                     font-size: 13px;
                     font-style: normal;
                 }
+                &-true {
+                    color: @style-main;
+                }
             }
+            
         }
     }
 }
@@ -404,6 +470,9 @@ img {
         color: #fff;
         background: @style-main;
     }
+    .btn-red {
+        background: #e63e3e;
+    }
 }
 
 
@@ -430,7 +499,7 @@ img {
         font-size: 12px;
         color: #eee;
     }
-    .nav {
+    .tab-nav {
         text-align: center;
         background: #eee;
         li {
@@ -460,5 +529,86 @@ img {
                 color: #aaa;
             }
         }
+    }
+}
+
+
+/*
+    我的消息
+*/
+
+.msg-box {
+    .list {
+        li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            a {
+                color: @style-main;
+            }
+            .name {
+                font-weight: bold;
+                line-height: 28px;
+                time {
+                    padding-left: 5px;
+                    font-size: 12px;
+                    font-weight: normal;
+                    color: #999;
+                }
+            }
+            .content {
+                padding: 5px 0;
+            }
+            .dian-true {
+                display: none;
+            }
+            .dian-false {
+                width: 8px;
+                height: 8px;
+                margin-right: 5px;
+                border-radius: 50%;
+                background: red;
+            }
+        }
+    }
+}
+
+/*
+    发表主题
+*/
+.topic-create {
+    .item {
+        padding: 10px 10px;
+        border-bottom: 1px solid #eee;
+        color: #444;
+    }
+    .key {
+        width: 40px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #999;
+    }
+    select {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        height: 28px;
+        line-height: 28px;
+        border-radius: 5px;
+        font-size: 13px;
+        color: #222;
+    }
+    input{
+        box-sizing: border-box;
+        width: 100%;
+        line-height: 28px;
+        font-size: 13px;
+    }
+    textarea {
+        box-sizing: border-box;
+        width: 100%;
+        height: 300px;
+        line-height: 24px;
+        font-size: 13px;
+        resize: none;
     }
 }
